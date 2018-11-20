@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="new-form">
+			<h1 class="new-title">Edit existing civilization</h1>
+	
+			<form class="ui form inline" action="/civilizations/<%= civilization._id %>?_method=PUT" method="POST">
+				<div class="form-group">
+					<label>Name</label>
+					<input name="civ[name]" value="<%= civilization.name %>" placeholder="name" type="text">
+				</div>
+
+				<div class="form-group">
+					<label>Image</label>
+					<input name="civ[image]" value="<%= civilization.image %>" placeholder="image url" type="text">
+				</div>
+				
+				<div class="form-group">
+			    	<label>Description</label>
+					<textarea name="civ[description]" placeholder="add a description"><%= civilization.description %></textarea>
+				</div>
+				
+				<button class="ui reverse green button">Update</button>
+			</form>
+			
+				<a class="ui reverse yellow button" href="/civilizations/<%= civilization._id %>">Go back</a>
+		</div>		
+	</div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To The Ultimate Civilizations Database!</h1>
+             <p>Travel all over the world and learn about the life-cycle of civilizations, the most common event in human history!</p>
+             <p>
+                <a class="ui reverse blue button" href="/civilizations/new">Add a new civilization</a>
+             </p>
+         </div>
+ 	</header>
+
+
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% civilizations.forEach(function(civilization) { %>
+          
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <a href="/civilizations/<%= civilization._id %>">
+                    <img class="ui medium rounded image" style="height:200px" src="<%= civilization.image %>">
+                   </a>
+                   <div class="caption">
+                       <h4><%= civilization.name %></h4>
+                   </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ../partials/footer %>

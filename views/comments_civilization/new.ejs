@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<div class="row">
+		<div class="new-form">
+			<h1 class="new-title">Add a new comment</h1>
+	
+			<form class="ui form inline" action="/civilizations/<%= civilization._id %>/comments" method="POST">
+				<div class="form-group">
+			    	<label>Content</label>
+					<textarea name="content" placeholder="add content"></textarea>
+				</div>
+				<button class="ui reverse green button">Submit</button>
+			</form>
+				<a class="ui reverse yellow button" href="/civilizations/<%= civilization._id %>">Go back</a>
+		</div>		
+	</div>
+</div>
+
+<% include ../partials/footer %>

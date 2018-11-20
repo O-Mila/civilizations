@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Civilizations</title>
+        <link  rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">	
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">	
+    </head>
+    <body>
+    	<div class="ui inverted blue menu">
+    		<a class="item" href="/civilizations">Home</a>
+            <% if(!currentUser) { %>
+                <a class="right item" href="/register">Register</a>
+                <a class="item" href="/login">Log in</a>
+            <% } else { %>
+                <span class="right item">Signed in as <%= currentUser.username %></span>
+                <a class="item" href="/logout">Log out</a>
+            <% } %>
+            
+    	</div>
+
+        <div class="container">
+            <% if(success && success.length > 0) {%>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
+                </div>
+            <%}%>
+            <% if(error && error.length > 0) {%>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <%}%>
+        </div>

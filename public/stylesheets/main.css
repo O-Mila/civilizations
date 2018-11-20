@@ -1,0 +1,40 @@
+.inline {
+	display: inline;
+}
+
+.new-title {
+	text-align: center;
+}
+
+.new-form {
+	width: 60%;
+	margin: 25px auto;
+}
+
+.description {
+	white-space: pre-wrap;
+}
+
+.thumbnail {
+	padding: 10px;
+}
+
+.comment {
+	padding: 10px;
+}
+
+.comments {
+	padding: 10px;
+	border: 1px solid hsla(204, 33%, 22%, 0.3);
+	border-radius: 2px;	
+}
+
+.show-upper {
+	border: 1px solid hsla(204, 33%, 22%, 0.3);
+	border-radius: 2px;
+	padding: 10px;
+}
+
+.show-image {
+	padding-bottom: 10px;
+}

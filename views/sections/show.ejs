@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="list-group">
+				<a class="list-group-item list-group-item-action list-group-item-dark active" href="/civilizations/<%= civilization._id %>"><%= civilization.name %></a>				
+				<a class="list-group-item list-group-item-action list-group-item-primary active" href="/civilizations/<%= civilization._id %>/sections">Events</a>					
+				<% civilization.sections.forEach(function(sect) { %>
+					<a class="list-group-item list-group-item-action list-group-item-secondary" href="/civilizations/<%= civilization._id %>/sections/<%= sect._id %>">
+						<%= sect.name %>
+					</a>
+				<% }); %> 				
+				<a class="list-group-item list-group-item-action list-group-item-dark" href="/civilizations/<%= civilization._id %>/sections/new">Add a new event</a>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div>		
+				<img class="ui rounded big image image-responsive" src="<%= section.image %>">
+				<div>
+					<h1><%= civilization.name %>: <%= section.name %></h1>
+					<p><em>By <%= section.author.username %></em></p>
+					<p class="description"><%= section.description %></p>					
+				</div>
+
+
+				<% if(currentUser && section.author.id.equals(currentUser._id)) { %>
+					<span><a class="ui inverse yellow button" href="/civilizations/<%= civilization._id %>/sections/<%= section._id %>/edit">Edit</a></span>
+					<form class="inline" action="/civilizations/<%= civilization._id %>/sections/<%= section._id %>?_method=DELETE" method="POST">
+						<button class="ui inverse red button">Delete</button>
+					</form>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer %>

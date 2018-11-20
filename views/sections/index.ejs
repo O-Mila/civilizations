@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+    <header class="jumbotron">
+         <div class="container">
+             <h1><%= civilization.name %>: List of sections</h1>
+             <p>
+                <a class="ui reverse blue button" href="/civilizations/<%= civilization._id %>/sections/new">Add a new section</a>
+                <a class="ui reverse yellow button" href="/civilizations/<%= civilization._id %>">Go back</a>
+             </p>
+         </div>
+  </header>
+
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% civilization.sections.forEach(function(section) { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <a href="/civilizations/<%= civilization._id %>/sections/<%= section._id %>">
+                     <img class="ui medium rounded image" style="height:200px" src="<%= section.image %>">
+                   </a>
+                   <div class="caption">
+                       <h4><%= section.name %></h4>
+                   </div>
+                </div>
+            </div>
+	    <% }); %>
+    </div>
+</div>
+    	
+<% include ../partials/footer %>
