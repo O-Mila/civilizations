@@ -7,8 +7,6 @@ passport			 = require("passport"),
 LocalStrategy		 = require("passport-local");
 
 mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://localhost/civilizations");
-//mongoose.connect("mongodb://oriolmilajansa:0112omj8986@ds123080.mlab.com:23080/civilizations");
 
 var Civilization = require("./models/civilization");
 var Section = require("./models/section");
