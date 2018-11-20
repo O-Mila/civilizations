@@ -6,7 +6,9 @@ flash				 = require("connect-flash"),
 passport			 = require("passport"),
 LocalStrategy		 = require("passport-local");
 
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost/civilizations"
+
+mongoose.connect(url);
 
 var Civilization = require("./models/civilization");
 var Section = require("./models/section");
