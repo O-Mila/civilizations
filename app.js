@@ -6,10 +6,9 @@ flash				 = require("connect-flash"),
 passport			 = require("passport"),
 LocalStrategy		 = require("passport-local");
 
-const secret = process.env.SECRET || "The Course the Nations Run",
-PORT 		 = process.env.PORT || 8000;
-
-var url = process.env.DATABASEURL || "mongodb://oriolmilajansa:0112omj8986@ds123080.mlab.com:23080/civilizations"
+const secret = process.env.SECRET,
+PORT 		 = process.env.PORT,
+url = process.env.DATABASEURL;
 
 mongoose.connect(url);
 
@@ -56,4 +55,4 @@ app.use(indexRoutes);
 app.use(commentRoutes);
 
 // Listen requests
-app.listen(PORT, () => console.log("The server Has Started!"));
+app.listen(PORT, () => console.log(`The server Has Started on port ${PORT}!`));
