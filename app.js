@@ -6,7 +6,10 @@ flash				 = require("connect-flash"),
 passport			 = require("passport"),
 LocalStrategy		 = require("passport-local");
 
-var url = process.env.DATABASEURL || "mongodb://localhost/civilizations"
+const secret = process.env.SECRET || "The Course the Nations Run",
+PORT 		 = process.env.PORT || 8000;
+
+var url = process.env.DATABASEURL || "mongodb+srv://Oriol:0112-omj-8986@cluster0-8kwdj.mongodb.net/civilizations?retryWrites=true"
 
 mongoose.connect(url);
 
@@ -29,7 +32,7 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 app.use(require("express-session")({
-	secret: "Spengler Uber Alles",
+	secret: secret,
 	resave: false,
 	saveUninitialized: false
 }));
@@ -53,4 +56,4 @@ app.use(indexRoutes);
 app.use(commentRoutes);
 
 // Listen requests
-app.listen(process.env.PORT, () => console.log("The server Has Started!"));
+app.listen(PORT, () => console.log("The server Has Started!"));
