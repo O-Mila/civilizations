@@ -10,7 +10,7 @@ const secret = process.env.SECRET,
 PORT 		 = process.env.PORT,
 url = process.env.DATABASEURL;
 
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true });
 
 var Civilization = require("./models/civilization");
 var Section = require("./models/section");
