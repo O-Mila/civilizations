@@ -9,7 +9,7 @@ LocalStrategy		 = require("passport-local");
 const secret = process.env.SECRET || "The Course the Nations Run",
 PORT 		 = process.env.PORT || 8000;
 
-var url = process.env.DATABASEURL || "mongodb+srv://Oriol:0112-omj-8986@cluster0-8kwdj.mongodb.net/civilizations?retryWrites=true"
+var url = process.env.DATABASEURL || "mongodb://oriolmilajansa:0112omj8986@ds123080.mlab.com:23080/civilizations"
 
 mongoose.connect(url);
 
