@@ -6,9 +6,9 @@ flash				 = require("connect-flash"),
 passport			 = require("passport"),
 LocalStrategy		 = require("passport-local");
 
-const secret = process.env.SECRET,
-PORT 		 = process.env.PORT,
-url = process.env.DATABASEURL;
+const PORT = process.env.PORT || 8081,
+secret 	   = process.env.SECRET || "The Wheel of Time",
+url        = process.env.DATABASEURL || "mongodb://localhost/civilizations";
 
 mongoose.connect(url, { useNewUrlParser: true });
 
